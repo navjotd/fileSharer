@@ -2,8 +2,8 @@ Dropzone.options.dropRegion = {
 	paramName: "file",
 	dictDefaultMessage: "",
 	clickable: false,
-	//createImageThumbnails: false,
-	//previewsContainer: false,
+	createImageThumbnails: false,
+	previewsContainer: false,
 	uploadMultiple: false,
 	init: function() {
 		this.on('addedFile', function(file) {
