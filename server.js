@@ -10,16 +10,18 @@ io.on('connection', function(socket) {
 	console.log('a socket has connected');
 })
 
-app.use(multer({dest: './uploads'}))
+app.use(multer({dest: './uploads', inMemory: true}))
 
 app.route('/upload')
 	.post(function(req, res, next) {
 		console.log('dropped a file');
-		var filePath = req.files.file.path;
-		fs.readFile(filePath, function(err, data) {
-			req.files.file.buffer = data.toString('base64');
-			io.emit('data', req.files.file);
-		})
+		console.log(req.files.file);
+		req.files.file.buffer = req.files.file.buffer.toString('base64');
+		io.emit('data', req.files.file);
+		// fs.readFile(filePath, function(err, data) {
+		// 	
+		// 	
+		// })
 		res.send('sucess');
 	})
 
