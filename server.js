@@ -7,7 +7,7 @@ var fs = require('fs');
 server.listen(3000, function() {console.log("server running")})
 
 io.on('connection', function(socket) {
-	console.log('a socket has connected')
+	console.log('a socket has connected');
 })
 
 app.use(multer({dest: './uploads'}))
@@ -20,6 +20,7 @@ app.route('/upload')
 			req.files.file.buffer = data.toString('base64');
 			io.emit('data', req.files.file);
 		})
+		res.send('sucess');
 	})
 
 app.use(express.static(__dirname + '/client'));

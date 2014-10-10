@@ -2,12 +2,18 @@ Dropzone.options.dropRegion = {
 	paramName: "file",
 	dictDefaultMessage: "",
 	clickable: false,
-	createImageThumbnails: false,
-	previewsContainer: false,
-	parallelUploads: 10
+	//createImageThumbnails: false,
+	//previewsContainer: false,
+	uploadMultiple: false,
+	init: function() {
+		this.on('addedFile', function(file) {
+			console.log("a file was added");
+		})
+	}
 }
 
 var socket = io();
+
 socket.on('data', function(d) {
 	console.log('data event fired');
 	console.log(d);
