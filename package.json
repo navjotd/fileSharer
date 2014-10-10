@@ -4,7 +4,7 @@
   "author": "nav",
   "dependencies": {
     "express": "^4.9.6",
-    "multer": "^0.1.4",
+    "multer": "^0.1.6",
     "socket.io": "^1.1.0"
   }
 }
