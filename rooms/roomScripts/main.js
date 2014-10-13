@@ -1,14 +1,8 @@
 Dropzone.autoDiscover = false;
-var socketId;
+var path = window.location.pathname;
 var socket = io();
 
 socket.on('sendSocketId', function(id) {
-	sockedId = id;
-})
-
-socket.on('sessionId', function(id) {
-	console.log(id);
-	history.replaceState({}, "", id);
 	var myDropzone = new Dropzone("#dropRegion",
 	{
 		paramName: "file",
@@ -17,15 +11,34 @@ socket.on('sessionId', function(id) {
 		createImageThumbnails: false,
 		previewsContainer: false,
 		uploadMultiple: false,
-		headers: {'room': id, 'socketid': sockedId},
+		headers: {'room': path.substring(1, path.length), 'socketid': id},
 		init: function() {
 			this.on('addedFile', function(file) {
 				console.log("a file was added");
 			})
 		}
 	});
-	socket.emit('joinRoom', id);
 })
+
+socket.emit('joinRoom', path.substring(1, path.length));
+
+// Dropzone.options.dropRegion = {
+// 	paramName: "file",
+// 	dictDefaultMessage: "",
+// 	clickable: false,
+// 	createImageThumbnails: false,
+// 	previewsContainer: false,
+// 	uploadMultiple: false,
+// 	headers: {
+// 		'room': path.substring(1, path.length),
+// 		'socketid': socketId
+// 	},
+// 	init: function() {
+// 		this.on('addedFile', function(file) {
+// 			console.log("a file was added");
+// 		})
+// 	}
+// }
 
 socket.on('data', function(d) {
 	console.log('data event fired');
@@ -37,8 +50,4 @@ socket.on('data', function(d) {
 })
 
 $(document).ready(function() {
-	$('#dropRegion').click(function(e) {
-		$(this).html("");
-		socket.emit('getId');
-	})
 });
