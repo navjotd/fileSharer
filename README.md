@@ -3,6 +3,8 @@ fileSharer
 
 instant file sharing
 
+##forkk.herokuapp.com
+
 ###### This is still a work in progress. Having problems with dropzone uploading the same file multiple times at random and sometimes stalling after a couple of file uploads. Note sure if dropzone issue entirely, but looking to switch to something else or build myself.
 
 ### Fixed the stalling problem and random uploading at random. Now to implement the shortid room sessions and minor routing associated with that. Then DESIGN.
