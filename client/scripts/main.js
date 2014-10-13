@@ -36,9 +36,13 @@ socket.on('data', function(d) {
 	window.open(datauri, 'heres the data');
 })
 
-$(document).ready(function() {
-	$('#dropRegion').click(function(e) {
-		$(this).html("");
-		socket.emit('getId');
-	})
-});
+var dropbox = document.getElementById('dropRegion');
+dropbox.onclick = function(e) {
+	this.innerHTML = "";
+	socket.emit('getId');
+};
+
+// $('#dropRegion').click(function(e) {
+// 	$(this).html("");
+// 	socket.emit('getId');
+// })

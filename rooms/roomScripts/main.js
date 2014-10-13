@@ -48,6 +48,3 @@ socket.on('data', function(d) {
 	console.log(datauri);
 	window.open(datauri, 'heres the data');
 })
-
-$(document).ready(function() {
-});
