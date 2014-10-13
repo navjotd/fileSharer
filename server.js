@@ -6,7 +6,7 @@ var io = require('socket.io')(server);
 var shortId = require('shortid');
 var regex = /\/[\w.-]+/;
 var sessions = {};
-server.listen(3000, function() {console.log("server running")})
+server.listen(process.env.PORT || 3000, function() {console.log("server running")})
 
 function genSessionId() {
 	var id = '';
