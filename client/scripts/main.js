@@ -40,6 +40,7 @@ var dropbox = document.getElementById('dropRegion');
 dropbox.onclick = function(e) {
 	this.innerHTML = "";
 	socket.emit('getId');
+	dropbox.onclick = undefined;
 };
 
 var helpButton = document.getElementById('helpIcon');
