@@ -48,3 +48,14 @@ socket.on('data', function(d) {
 	console.log(datauri);
 	window.open(datauri, 'heres the data');
 })
+
+var helpButton = document.getElementById('helpIcon');
+var helpContent = document.getElementById('help');
+helpContent.className = "hidden";
+
+helpButton.onclick = function(e) {
+	if (helpContent.className = "hidden")
+		helpContent.className = "visible";
+	else
+		helpContent.className = "hidden";
+};

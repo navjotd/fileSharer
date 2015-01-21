@@ -7,6 +7,15 @@
 	<script src="/socket.io/socket.io.js"></script>
 </head>
 <body>
+	<div id="helpIcon"> ? </div>
+	<div id="help">
+		<ul>
+			<li> The person receiving the file needs to disable popups for this page </li>
+			<li> Share the URL with others you wish to send files</li>
+			<li> Share files by dropping them in the dotted box or clicking it </li>
+			<li> Please send files smaller than 500KB. I use DataURIs. I have to change that</li>
+		</ul>
+	</div>
 	<div id="dropBox">
 		<form action="/upload" class="dropzone" id="dropRegion" enctype="multipart/form-data"></form>
 	</div>

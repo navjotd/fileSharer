@@ -45,8 +45,12 @@ dropbox.onclick = function(e) {
 var helpButton = document.getElementById('helpIcon');
 var helpContent = document.getElementById('help');
 helpContent.className = "hidden";
+
 helpButton.onclick = function(e) {
-	helpContent.className = "visible";
+	if (helpContent.className = "hidden")
+		helpContent.className = "visible";
+	else
+		helpContent.className = "hidden";
 };
 
 // $('#dropRegion').click(function(e) {
