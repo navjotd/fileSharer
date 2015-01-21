@@ -47,7 +47,7 @@ var helpContent = document.getElementById('help');
 helpContent.className = "hidden";
 
 helpButton.onclick = function(e) {
-	if (helpContent.className = "hidden")
+	if (helpContent.className === "hidden")
 		helpContent.className = "visible";
 	else
 		helpContent.className = "hidden";
